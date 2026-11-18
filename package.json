@@ -1,6 +1,6 @@
 {
   "name": "nezuko-baileys",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Nezuko Baileys: an independently maintained WhatsApp library fork with integrated VoIP, MessageBuilder, and compatibility helpers.",
   "main": "src/index.js",
   "types": "src/index.d.ts",

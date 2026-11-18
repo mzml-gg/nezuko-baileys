@@ -6343,3 +6343,26 @@ Jangan menghapus pemberitahuan hak cipta atau atribusi pihak ketiga yang diwajib
 </div>
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%">
+
+---
+
+## Canonical Baileys import path
+
+للتوافق مع المشاريع التي تستورد Baileys بهذا الاسم، يمكن تثبيت هذا الفورك تحت المسار الرسمي من GitHub بدون تغيير اسم المستودع أو انتحال حزمة npm مملوكة لطرف آخر:
+
+```json
+{
+  "dependencies": {
+    "@whiskeysockets/baileys": "github:mzml-gg/nezuko-baileys#v1.0.1"
+  }
+}
+```
+
+بعدها تعمل الاستيرادات التالية من نفس فورك Nezuko:
+
+```js
+import makeWASocket from '@whiskeysockets/baileys';
+import { makeVoipClient } from '@whiskeysockets/baileys/voip';
+```
+
+هذا هو الأسلوب الذي تستخدمه `nezuko-voip`، ولذلك لا يبحث المستخدم عن package باسم `nezuko-baileys` وقت تشغيل VoIP.
