@@ -30,7 +30,8 @@
     "WAProto/**/*",
     "engine-requirements.js",
     "NOTICE.md",
-    "EXPERIMENTAL.md"
+    "EXPERIMENTAL.md",
+    "assets/**/*"
   ],
   "keywords": [
     "automation",

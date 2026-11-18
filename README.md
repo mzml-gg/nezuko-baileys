@@ -8,6 +8,39 @@ npm install github:mzml-gg/nezuko-baileys
 
 ---
 
+## NEZUKO WA BOT
+
+<p align="center">
+  <img src="./assets/nezuko-icon.png" alt="NEZUKO WA BOT" width="180" />
+</p>
+
+**NEZUKO WA BOT** هي منصة WhatsApp Sub Bot للربط السريع وإدارة الاتصالات الحية. بحسب الموقع الرسمي [bot.nezuko-wa.web.id](https://bot.nezuko-wa.web.id)، تدعم المنصة الربط عبر QR أو Pair Code، وإدارة اتصال البوت أثناء التشغيل. الموقع يذكر أن المشروع من هندسة **MONTE**.
+
+- الموقع: [bot.nezuko-wa.web.id](https://bot.nezuko-wa.web.id)
+- الموقع الأساسي الظاهر في البيانات الوصفية: [nezuko-wa.monte-dev.online](https://nezuko-wa.monte-dev.online/)
+- الأيقونة الرسمية محفوظة في [`assets/nezuko-icon.png`](./assets/nezuko-icon.png) و[`assets/apple-touch-icon.png`](./assets/apple-touch-icon.png).
+
+للاستخدام مع المكالمات، ثبّت الحزمتين معاً:
+
+```bash
+npm install github:mzml-gg/nezuko-baileys github:mzml-gg/nezuko-voip
+```
+
+ثم استورد محرك المكالمات من المسار الموحد:
+
+```js
+import makeWASocket, { useMultiFileAuthState } from 'nezuko-baileys';
+import { makeVoipClient } from 'nezuko-baileys/voip';
+
+const { state, saveCreds } = await useMultiFileAuthState('./session');
+const sock = makeWASocket({ auth: state, printQRInTerminal: true });
+sock.ev.on('creds.update', saveCreds);
+
+// بعد connection.update = open
+const voip = await makeVoipClient(sock);
+await voip.call('201000000000', { audioSource: './audio.mp3' });
+```
+
 
 
 <div align="center">
